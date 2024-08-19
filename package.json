@@ -1,0 +1,22 @@
+{
+  "name": "dolar-bna-scrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env index.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Gianluca Bredice Developer",
+    "email": "devbredicegian@gmail.com",
+    "url": "https://devbredicegian.site"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^3.5.0",
+    "mongoose": "^8.5.3",
+    "playwright": "^1.46.0"
+  }
+}
