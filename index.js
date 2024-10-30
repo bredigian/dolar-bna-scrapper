@@ -29,7 +29,7 @@ const syncDatabase = async () => {
   const page = await browser.newPage()
 
   const lastCotizacion = await Cotizacion.findOne().sort({ _id: -1 })
-  console.log(lastCotizacion)
+  console.log("Ultima cotizacion: ", lastCotizacion)
 
   if (lastCotizacion) {
     const [day, month, year] = lastCotizacion.fecha.split("-")
@@ -51,8 +51,12 @@ const syncDatabase = async () => {
 
         return {
           fecha: `${day}-${month}-${year}`,
-          compra: parseFloat(cells[1]?.textContent?.trim().replace(",", ".")),
-          venta: parseFloat(cells[2]?.textContent?.trim().replace(",", ".")),
+          compra: parseFloat(
+            cells[1]?.textContent.trim().replace(".", "").replace(",", ".")
+          ),
+          venta: parseFloat(
+            cells[2]?.textContent.trim().replace(".", "").replace(",", ".")
+          ),
           variacion: cells[3]?.textContent?.trim(),
         }
       })
